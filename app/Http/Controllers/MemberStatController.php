@@ -10,7 +10,9 @@ class MemberStatController extends Controller
 {
     public function index(Member $member, Request $request)
     {
-        $result = $request->has('year') ? $member->getMonthlyStat($request->year) : $member->getYearlyStat();
+        $result = $request->has('year') && is_numeric($request->year)
+            ? $member->getMonthlyStat($request->year)
+            : $member->getYearlyStat();
 
         return response()->json([
             'result' => $result
