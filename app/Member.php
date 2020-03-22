@@ -32,8 +32,8 @@ class Member extends Model
             $query = $query->where('surname', 'LIKE', '%' . $request->surname . '%');
         }
 
-        if ($request->surname !== null) {
-            $query = $query->where('surname', 'LIKE', '%' . $request->surname . '%');
+        if ($request->email !== null) {
+            $query = $query->where('email', 'LIKE', '%' . $request->email . '%');
         }
 
         return $query;
